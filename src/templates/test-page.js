@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import { Helmet } from 'react-helmet';
 
-// TODO
 export const TestPageTemplate = ({ title, content }) => {
-  // title = src/pages/test/index.md title
-  console.log(title);
-  console.log(content);
   return (
-    <p>Hi!</p>
+    <div>
+      <Helmet>
+        <title>{title}</title>
+      </Helmet>
+      <div>{content}</div>
+    </div>
   );
 }
 
@@ -18,11 +20,7 @@ TestPageTemplate.propTypes = {
 }
 
 const TestPage = ({ data }) => {
-  // data = whatever testPageQuery returns
-  // { markdownRemark: { html, frontmatter } }
-  console.log(data);
-  const markdownRemark = data.markdownRemark;
-
+  const { markdownRemark } = data;
   return (
     <TestPageTemplate
       title={markdownRemark.frontmatter.title}
@@ -37,9 +35,6 @@ TestPage.propTypes = {
 
 export default TestPage
 
-// my guess:
-// somehow this template has the same id as `src/pages/test/index.md`
-// the query returns the frontmatter and rest as html
 export const testPageQuery = graphql`
   query TestPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
