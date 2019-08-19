@@ -1,6 +1,18 @@
 ---
-templateKey: 'test-page'
-path: /test
-title: This is a test page
+templateKey: test-page
+title: This is the best test page ever!
 ---
-Hello from test page!
+# My first page
+
+## Section 1
+
+Blah blah blah
+
+## Section 2
+
+Blah blah blah
+
+* First
+* Second
+
+![Really nice weather](/img/sw.jpg "Some nice weather")
