@@ -15,6 +15,4 @@ Blah blah blah
 * First
 * Second
 
-
-
 ![Really nice weather](/img/sw.jpg "Some nice weather")
