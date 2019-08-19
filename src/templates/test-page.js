@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 
 // TODO
 export const TestPageTemplate = ({ title, content }) => {
+  // title = src/pages/test/index.md title
   console.log(title);
   console.log(content);
   return (
@@ -17,12 +18,15 @@ TestPageTemplate.propTypes = {
 }
 
 const TestPage = ({ data }) => {
-  const { markdownRemark: post } = data
+  // data = whatever testPageQuery returns
+  // { markdownRemark: { html, frontmatter } }
+  console.log(data);
+  const markdownRemark = data.markdownRemark;
 
   return (
     <TestPageTemplate
-      title={post.frontmatter.title}
-      content={post.html}
+      title={markdownRemark.frontmatter.title}
+      content={markdownRemark.html}
     />
   );
 }
@@ -33,6 +37,9 @@ TestPage.propTypes = {
 
 export default TestPage
 
+// my guess:
+// somehow this template has the same id as `src/pages/test/index.md`
+// the query returns the frontmatter and rest as html
 export const testPageQuery = graphql`
   query TestPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
