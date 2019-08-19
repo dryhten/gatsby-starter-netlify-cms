@@ -9,7 +9,7 @@ export const TestPageTemplate = ({ title, content }) => {
       <Helmet>
         <title>{title}</title>
       </Helmet>
-      <div>{content}</div>
+      <div dangerouslySetInnerHTML={{ __html: content }} />
     </div>
   );
 }
