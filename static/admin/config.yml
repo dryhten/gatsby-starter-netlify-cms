@@ -1,6 +1,9 @@
 backend:
   name: git-gateway
   branch: master
+  accept_roles:
+    - admin
+#    - test
 
 publish_mode: editorial_workflow
 media_folder: static/img
